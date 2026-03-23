@@ -40,19 +40,18 @@ h1 {
 }
 
 .box3 {
-    background-color: #3cb371;
     padding: 15px;
-
     border: 12px solid transparent;
+    background-color: #3cb371;
 
-    background-image: 
-        radial-gradient(gray 6px, transparent 7px);
+    background-image:
+        radial-gradient(gray 6px, transparent 7px), /* 圓點 */
+        linear-gradient(#3cb371, #3cb371);          /* 內部純色 */
 
-    background-size: 25px 25px;
+    background-size: 30px 30px, 100% 100%;
 
-    /* 關鍵！！ */
     background-origin: border-box;
-    background-clip: border-box;
+    background-clip: border-box, padding-box;
 }
 </style>
 </head>
