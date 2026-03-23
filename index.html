@@ -44,16 +44,16 @@ h1 {
     background-color: #3cb371;
     padding: 15px;
 
-    /* 圓點邊框效果 */
-    border: 8px solid transparent;
-    background-image:
-        radial-gradient(gray 6px, transparent 7px),
-        radial-gradient(gray 6px, transparent 7px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+    border: 12px solid transparent;
 
-    /* 讓圓點只出現在邊框 */
-    background-clip: padding-box, border-box;
+    background-image: 
+        radial-gradient(gray 6px, transparent 7px);
+
+    background-size: 25px 25px;
+
+    /* 關鍵！！ */
+    background-origin: border-box;
+    background-clip: border-box;
 }
 </style>
 </head>
