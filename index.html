@@ -1,39 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>CSS Borders and Backgrounds</title>
-<style>
-  .box {
-    font-size: 32px;                              
-    font-weight: bold;                            
-    padding: 10px 20px;                           
-    margin-bottom: 20px;                          
-    width: 400px;                                
-  }
+    <meta charset="UTF-8">
+    <title>HW16</title>
 
-  .style1 {
-    background-color: lightblue; 
-    border: 6px double red;       
-  }
+    <style>
+        body{
+            margin:0;
+            background:#f2f2f2;
+            font-family:"Times New Roman", serif;
+        }
 
-  .style2 {
-    background-color: yellow;
-    border: 3px solid #007bff;    
-    border-radius: 15px;          
-  }
+        .container{
+            width:820px;
+            margin:60px auto;
+            background:white;
+            padding:28px 34px;
+            box-shadow:0 4px 14px rgba(0,0,0,0.25);
+        }
 
-  
-  .style3 {
-    background-color: #3cb371;    
-    border: 8px dotted gray;      
-  }
-</style>
+        .box{
+            font-size:72px;
+            font-weight:bold;
+            color:black;
+            box-sizing:border-box;
+            margin-bottom:34px;
+        }
+
+        /* 第一個 */
+        .box1{
+            background:#eaf7f7;
+            border:12px double #de6d5e;
+            padding:18px 20px;
+        }
+
+        /* 第二個 */
+        .box2{
+            background:#ecec2f;
+            border:5px solid #8aa0c8;
+            border-radius:24px;
+            padding:18px 20px;
+        }
+
+        /* 第三個 */
+        .box3{
+            position:relative;
+            background:#5ea25d;
+            padding:20px 22px;
+            margin-bottom:0;
+            color:black;
+            overflow:visible; /* ✅ 修正：不要裁切 */
+        }
+
+        .box3 span{
+            position:relative;
+            z-index:2;
+        }
+
+        /* 上 */
+        .box3::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:12px;
+            right:12px;
+            height:16px;
+            z-index:1;
+            background:
+                radial-gradient(circle, #6c716b 0 6px, transparent 7px)
+                0 0 / 32px 16px repeat-x;
+        }
+
+        /* 下 */
+        .box3::after{
+            content:"";
+            position:absolute;
+            bottom:0;
+            left:12px;
+            right:12px;
+            height:16px;
+            z-index:1;
+            background:
+                radial-gradient(circle, #6c716b 0 6px, transparent 7px)
+                0 0 / 32px 16px repeat-x;
+        }
+
+        /* 左 */
+        .dot-left{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            width:16px;
+            z-index:1;
+            background:
+                radial-gradient(circle, #6c716b 0 6px, transparent 7px)
+                0 0 / 16px 32px repeat-y;
+        }
+
+        /* 右 */
+        .dot-right{
+            position:absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            width:16px;
+            z-index:1;
+            background:
+                radial-gradient(circle, #6c716b 0 6px, transparent 7px)
+                0 0 / 16px 32px repeat-y;
+        }
+    </style>
 </head>
+
 <body>
-
-  <div class="box style1">Hello World</div>
-  <div class="box style2">Hello World</div>
-  <div class="box style3">Hello World</div>
-
+    <div class="container">
+        <div class="box box1">Hello World</div>
+        <div class="box box2">Hello World</div>
+        <div class="box box3">
+            <div class="dot-left"></div>
+            <div class="dot-right"></div>
+            <span>Hello World</span>
+        </div>
+    </div>
 </body>
 </html>
